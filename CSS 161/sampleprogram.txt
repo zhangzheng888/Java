@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+/**
+  * Description:     This application calculates the average of 3 quizzes for
+  *                  a given student.
+  * Filename:        SampleProgram.java
+  * Project:         Assignment 1
+  * Author:          Jose Paz
+  * Due Date:        3/27/2015
+*/
+
+public class SampleProgram  { 
+
+   public static void main(String[] args) {  
+     
+      // Create Scanner object for input
+      Scanner input = new Scanner(System.in);
+       
+      // Initialize local variables
+      int totalScore = 0;
+      int quizCount = 0;
+      String studentName = "";
+       
+      // Set student name
+      studentName = setName(input);
+            
+      // Inputs 3 quiz scores and adds 3 to quiz count
+      totalScore = addQuiz(totalScore, input);
+      quizCount++;
+      totalScore = addQuiz(totalScore, input);
+      quizCount++;
+      totalScore = addQuiz(totalScore, input);
+      quizCount++;
+      
+      // Prints out name, total quiz score, and average quiz score
+      System.out.print("\nName: ");
+      System.out.println(studentName);
+      System.out.print("Total score: ");
+      System.out.println(totalScore);
+      System.out.print("Average: ");
+      System.out.printf("%6.1f", getAverageScore(totalScore, quizCount));
+   }
+
+   /**
+      Creates a student name from user input.
+      @param input Scanner object for input
+      @return inputted student name
+   */
+   public static String setName(Scanner input) {
+      System.out.print("Enter student name: ");
+      String name = input.next();
+      
+      return name;
+   }
+
+   /**
+      Add quiz score to total quiz score.
+      @param totalScore total of quiz scores
+      @param input Scanner object for input
+      @return updated total quiz scores
+   */
+   public static int addQuiz(int totalScore, Scanner input) {
+      System.out.print("Enter quiz score: ");
+      int score = input.nextInt();
+      totalScore = totalScore + score;
+            
+      return totalScore;
+   }
+   
+   /**
+      Gets the average of all quiz scores.
+      @param totalScore total of quiz scores
+      @param quizCount number of quizzes
+      @return the average quiz score
+   */
+   public static double getAverageScore(int totalScore, int quizCount) {  
+      return totalScore / (double) quizCount;
+   }
+}
