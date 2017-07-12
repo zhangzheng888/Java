@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=degF
+comment0.target=double\ fToC(double)
+comment0.text=\r\n\ Converts\ Fahrenheit\ to\ Celsius\r\n\r\n\ @param\ \ degF\ \ \ temperature,\ in\ degrees\ Fahrenheit\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Celcius\r\n
+comment1.params=degF
+comment1.target=double\ fToK(double)
+comment1.text=\r\n\ Converts\ Fahrenheit\ to\ Kelvin\r\n\r\n\ @param\ \ degF\ \ \ temperature,\ in\ degrees\ Fahrenheit\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Kelvin\r\n
+comment2.params=degC
+comment2.target=double\ cToF(double)
+comment2.text=\r\n\ Converts\ Celsius\ to\ Fahrenheit\r\n\r\n\ @param\ \ degC\ \ \ temperature,\ in\ degrees\ Celsius\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Fahrenheit\r\n
+comment3.params=degC
+comment3.target=double\ cToK(double)
+comment3.text=\r\n\ Converts\ Celsius\ to\ Kelvin\r\n\r\n\ @param\ \ degC\ \ \ temperature,\ in\ degrees\ Celsius\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Kelvin\r\n
+comment4.params=degK
+comment4.target=double\ kToF(double)
+comment4.text=\r\n\ Converts\ Kelvin\ to\ Fahrenheit\r\n\r\n\ @param\ \ degK\ \ \ temperature,\ in\ degrees\ Kelvin\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Fahrenheit\r\n\ @throws\ \ \ \ \ \ \ \ IllegalArgumentException,\ if\ degK\ is\ negative\r\n
+comment5.params=degK
+comment5.target=double\ kToC(double)
+comment5.text=\r\n\ Converts\ Kelvin\ to\ Celsius\r\n\r\n\ @param\ \ degK\ \ \ temperature,\ in\ degrees\ Kelvin\r\n\ @return\ \ \ \ \ \ \ \ temperature,\ in\ degrees\ Celsius\r\n\ @throws\ \ \ \ \ \ \ \ IllegalArgumentException,\ if\ degK\ is\ negative\r\n
+numComments=6

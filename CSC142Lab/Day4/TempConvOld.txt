@@ -1,0 +1,205 @@
+import java.util.Scanner;
+
+/**
+ * Console-based menu program offering temperature conversions to and from C, F, and K
+ * 
+ * @author Bill Barry
+ * @version 2015-12-27
+ */
+public class TempConvOld
+{
+    public static void main(String[] args) {
+        Scanner conIn = new Scanner(System.in);
+        int choice;
+        double inputTemp, result;
+        do {
+            System.out.println("\n\nTemperature Conversion Menu\n");
+            System.out.println("1.  Fahrenheit to Celcius");
+            System.out.println("2.  Fahrenheit to Kelvin");
+            System.out.println("3.  Celsius to Fahrenheit");
+            System.out.println("4.  Celcius to Kelvin");
+            System.out.println("5.  Kelvin to Fahrenheit");
+            System.out.println("6.  Kelvin to Celsius\n");
+            System.out.println("0.  EXIT\n");
+            System.out.print("Enter your choice: ");
+            
+            // Make sure we get an integer choice                       // DEMO NOTE:  explain that moving this to a "getInt" function would be useful
+            while (!conIn.hasNextInt()) {
+                conIn.next();
+                System.out.print("Enter your choice: ");
+            }
+            choice = conIn.nextInt();
+            
+            if (choice >= 1 && choice <= 6) {
+                System.out.print("Enter the input temperature: ");      // DEMO NOTE:  put these inside IF, then factor out
+                inputTemp = conIn.nextDouble();
+                result = 0.0;                                           // DEMO NOTE:  don't include this, at first
+                
+                if (choice == 1) {
+                    result = fToC(inputTemp);
+                }
+                else if (choice == 2) {
+                    result = fToK(inputTemp);
+                }
+                else if (choice == 3) {
+                    result = cToF(inputTemp);
+                }
+                else if (choice == 4) {
+                    result = cToK(inputTemp);
+                }
+                else if (choice == 5) {
+                    result = kToF(inputTemp);
+                }
+                else if (choice == 6) {
+                    result = kToC(inputTemp);
+                }
+                System.out.printf("Converted temperature is: %8.2f\n", result);      // DEMO NOTE:  motivate need by choosing F to C and entering 10
+            }
+        } while (choice != 0);
+        System.out.println("Goodbye");
+    }
+    
+    public static void stringMenu() {
+        Scanner conIn = new Scanner(System.in);
+        System.out.println("1.  asdf");
+        System.out.println("2.  qwerty");
+        String choice = conIn.next();
+        if (choice.equals("1")) {
+            System.out.println("You chose 1");
+        }
+        else if (choice.equals("2")) {
+            System.out.println("You chose 2");
+        }
+        else {
+            System.out.println("Invalid choice");
+        }
+        System.out.println("Bye");
+    }
+    
+    /**
+     * Converts Fahrenheit to Celsius
+     *
+     * @param  degF   degrees Fahrenheit
+     * @return     degrees Celcius
+     */
+    public static double fToC(double degF)
+    {
+        return (degF - 32.0) * 5.0 / 9.0;
+    }
+    
+    /**
+     * Converts Fahrenheit to Kelvin
+     *
+     * @param  degF   degrees Fahrenheit
+     * @return     degrees Kelvin
+     */
+    public static double fToK(double degF)
+    {
+        return (degF + 459.67) * 5.0 / 9.0;
+    }
+
+    /**
+     * Converts Celsius to Fahrenheit
+     *
+     * @param  degC   degrees Celsius
+     * @return     degrees Fahrenheit
+     */
+    public static double cToF(double degC)
+    {
+        return degC * 9.0 / 5.0 + 32.0;
+    }
+
+    /**
+     * Converts Celsius to Kelvin
+     *
+     * @param  degC   degrees Celsius
+     * @return     degrees Kelvin
+     */
+    public static double cToK(double degC)
+    {
+        return degC + 273.15;
+    }
+
+    /**
+     * Converts Kelvin to Fahrenheit
+     *
+     * @param  degK   degrees Kelvin
+     * @return     degrees Fahrenheit
+     */
+    public static double kToF(double degK)
+    {
+        if (degK < 0) {
+            throw new IllegalArgumentException("Kelvin degrees must be non-negative");
+        }
+        return degK * 9.0 / 5.0 - 459.67;
+    }
+    
+    /**
+     * Converts Kelvin to Celsius
+     *
+     * @param  degK   degrees Kelvin
+     * @return     degrees Celsius
+     */
+    public static double kToC(double degK)
+    {
+        if (degK < 0) {
+            throw new IllegalArgumentException("Kelvin degrees must be non-negative");
+        }
+        return degK - 273.15;
+    }
+    
+    /**
+     * Tests conversion functions
+     */
+    public static void testConversions()
+    {
+        double input, expected, result;
+        System.out.println("\n\nConversion tests starting; any failures will be noted here:");
+        
+        // test fToC
+        input = 572.0; expected = 300.0; result = Math.round(fToC(input) * 100.0) / 100.0; 
+        if (result != expected) System.out.println("fToC failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test fToK
+        input = -40.0; expected = 233.15; result = Math.round(fToK(input) * 100.0) / 100.0;
+        if (result != expected) System.out.println("fToK failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test cToF
+        input = 10.0; expected = 50.0; result = Math.round(cToF(input) * 100.0) / 100.0;
+        if (result != expected) System.out.println("cToF failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test cToK
+        input = -260.0; expected = 13.15; result = Math.round(cToK(input) * 100.0) / 100.0;
+        if (result != expected) System.out.println("cToK failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test kToF
+        input = 43.15; expected = -382.0; result = Math.round(kToF(input) * 100.0) / 100.0;
+        if (result != expected) System.out.println("kToF failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test kToC
+        input = 303.15; expected = 30.0; result = Math.round(kToC(input) * 100.0) / 100.0;
+        if (result != expected) System.out.println("kToC failed converting " + input + "; expected " + expected + " but got " + result);
+        
+        // test kToC preconditions
+        try {
+            input = -0.5; expected = 0.0; result = Math.round(kToF(input) * 100.0) / 100.0;
+            System.out.println("kToF precondition failure; input of " + input + " did not throw an exception as expected.");
+        }
+        catch (IllegalArgumentException e) {
+            // expected behavior!
+        }
+        
+        // test kToC preconditions
+        try {
+            input = -0.5; expected = 0.0; result = Math.round(kToC(input) * 100.0) / 100.0;
+            System.out.println("kToC precondition failure; input of " + input + " did not throw an exception as expected.");
+        }
+        catch (IllegalArgumentException e) {
+            // expected behavior!
+        }
+        
+        System.out.println("Conversion tests ending");
+    }
+    
+
+}
