@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=HashIntSet()
+comment1.params=value
+comment1.target=void\ add(int)
+comment10.params=
+comment10.target=void\ rehash()
+comment2.params=
+comment2.target=void\ clear()
+comment3.params=value
+comment3.target=boolean\ contains(int)
+comment4.params=
+comment4.target=boolean\ isEmpty()
+comment5.params=value
+comment5.target=void\ remove(int)
+comment6.params=
+comment6.target=int\ size()
+comment7.params=
+comment7.target=java.lang.String\ toString()
+comment8.params=value
+comment8.target=int\ hashFunction(int)
+comment9.params=
+comment9.target=double\ loadFactor()
+numComments=11
